@@ -1,6 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+// Cookie helper
+function sc(n,v,d){var e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=n+'='+encodeURIComponent(v)+';expires='+e.toUTCString()+';path=/;SameSite=Lax'}
+function gc(n){var m=document.cookie.match('(^|; )'+n+'=([^;]*)');return m?decodeURIComponent(m[2]):null}
+
+var T={
+en:{badge:"2026 Latest v6.179.0",title:"Download OKX APK",desc:"Official Original Android App<br>Android 7.0+ | Safe | Free Download",btn:"&#x2B07; Download Now",info_original:"Official Original",nh:"Home",ni:"Install Guide",nf:"FAQ",nu:"Changelog",li_install:"Install Guide",li_faq:"FAQ",li_update:"Changelog",has_dropdown:1},
+pt:{badge:"2026 v6.179.0",title:"Baixar OKX APK",desc:"Aplicativo Android Oficial Original<br>Android 7.0+ | Seguro | Download Gr&aacute;tis",btn:"&#x2B07; Baixar Agora",info_original:"Original Oficial",nh:"In&iacute;cio",ni:"Instalar",nf:"FAQ",nu:"Vers&otilde;es",li_install:"Guia",li_faq:"Perguntas",li_update:"Hist&oacute;rico"},
+tr:{badge:"2026 En Yeni v6.179.0",title:"OKX APK &Idot;ndir",desc:"Resmi Orijinal Android Uygulamas&imath;<br>Android 7.0+ | G&uuml;venli | &Uuml;cretsiz",btn:"&#x2B07; Hemen &Idot;ndir",info_original:"Resmi Orijinal",nh:"Ana Sayfa",ni:"Kurulum",nf:"SSS",nu:"G&uuml;ncelleme",li_install:"Kurulum",li_faq:"SSS",li_update:"G&uuml;ncelleme"},
+id:{badge:"2026 Terbaru v6.179.0",title:"Unduh OKX APK",desc:"Aplikasi Android Resmi Original<br>Android 7.0+ | Aman | Gratis",btn:"&#x2B07; Unduh Sekarang",info_original:"Resmi Original",nh:"Beranda",ni:"Instal",nf:"FAQ",nu:"Riwayat",li_install:"Panduan",li_faq:"Tanya Jawab",li_update:"Riwayat"},
+zh:{badge:"2026 最新版 v6.179.0",title:"OKX 欧易 APK 下载",desc:"官方原版安卓客户端<br>Android 7.0+ | 安全无毒 | 免费下载",btn:"&#x2B07; 立即下载",info_original:"官方原版",nh:"首页",ni:"安装教程",nf:"常见问题",nu:"更新日志",li_install:"安装教程",li_faq:"常见问题",li_update:"更新日志",has_dropdown:1}
+};
+
+// Detect lang
+var l=gc('lang');
+if(!l||!T[l]){
+  var bl=(navigator.language||'').toLowerCase();
+  if(bl.startsWith('pt'))l='pt';else if(bl.startsWith('tr'))l='tr';else if(bl.startsWith('id'))l='id';else if(bl.startsWith('zh'))l='zh';
+  else{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';l=/^Asia\/(Shanghai|Urumqi|Taipei|Hong_Kong|Macau)$/.test(tz)?'zh':'en'}
+  sc('lang',l,365)
+}
+document.documentElement.lang=l;
+var d=T[l]||T.en,p=location.pathname||'/';
+</script>
 <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;color:#e8ecf1;padding:0}
 .bar{display:flex;align-items:center;padding:10px 14px;background:rgba(0,0,0,0.4)}
@@ -19,36 +42,27 @@ body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;
 .ft{text-align:center;padding:20px;font-size:10px;color:rgba(255,255,255,0.15)}
 @media(min-width:768px){.bar{padding:12px 28px}.nav{gap:18px}.nav a{font-size:13px}.content{padding:36px 28px}}</style></head>
 <body>
-<div class="bar"><div class="nav">
- <a href="/" id="nh">Home</a>
- <a href="/install.html" id="ni">Install Guide</a>
- <a href="/faq.html" id="nf">FAQ</a>
- <a href="/update.html" id="nu">Changelog</a>
-</div></div>
+<div class="bar"><div class="nav"><a href="/" id="nh">Home</a><a href="/install.html" id="ni">Install Guide</a><a href="/faq.html" id="nf">FAQ</a><a href="/update.html" id="nu">Changelog</a></div></div>
 <div class="main"><div class="content"><h1>Frequently Asked Questions</h1>
 <h2>Is this APK safe?</h2><p>Official OKX APK, unmodified. SHA256 hash verification available.</p>
 <h2>Why not on App Store?</h2><p>Regional regulations may block OKX in certain App Stores.</p>
 <h2>How to verify the file?</h2><div class="step">Compute SHA256 and compare with official value from okx.com.</div>
 <h2>Does it auto-update?</h2><p>OKX has built-in update detection.</p>
 <h2>Download is slow?</h2><p>Hosted on GitHub. Try off-peak hours.</p>
-<h2>App crashes?</h2><p>Re-download, check Android 7.0+, or free storage space.</p>
-<h2>How to install on iOS?</h2><p>iOS cannot install APK. Use overseas Apple ID and search OKX in App Store.</p>
+<h2>App crashes?</h2><p>Re-download, check Android 7.0+, or free storage.</p>
+<h2>How to install on iOS?</h2><p>Use overseas Apple ID and search OKX in App Store.</p>
 <center><a href="/" class="btn-home">&#x2B07; Back to Download</a></center></div></div>
 <div class="ft">&copy; 2026 OKX App Download</div>
 <script>
-var L={en:{nh:"Home",ni:"Install Guide",nf:"FAQ",nu:"Changelog"},pt:{nh:"Início",ni:"Instalar",nf:"FAQ",nu:"Versões"},tr:{nh:"Ana Sayfa",ni:"Kurulum",nf:"SSS",nu:"Güncelleme"},id:{nh:"Beranda",ni:"Instal",nf:"FAQ",nu:"Riwayat"},zh:{nh:"首页",ni:"安装教程",nf:"常见问题",nu:"更新日志"}};
-// 1. URL param (from homepage lang switch)
-var p=new URLSearchParams(location.search);
-var u=p.get('lang');
-// 2. localStorage (persisted preference)
-var s=localStorage.getItem('okx_lang');
-var l=u||s||'en';
-if(!L[l])l='en';
-// Save for consistency
-if(u)localStorage.setItem('okx_lang',u);
-var d=L[l]||L.en;
+// Apply translations
 for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
-var m={"/install.html":"ni","/faq.html":"nf","/update.html":"nu"};
-var id=m[location.pathname];if(id){var e=document.getElementById(id);if(e)e.classList.add("on")}
+document.title=d.title||document.title;
+
+// Dropdown
+var s=document.getElementById('langSwitcher');
+if(s){s.value=l;s.addEventListener('change',function(){sc('lang',this.value,365);location.reload()})}
+
+// Nav active
+if(p!=='/'){var e=document.getElementById('nh');if(e)e.classList.remove('on');var m={'/install.html':'ni','/faq.html':'nf','/update.html':'nu'};var id=m[p];if(id){var a=document.getElementById(id);if(a)a.classList.add('on')}}
 </script>
 </body></html>
