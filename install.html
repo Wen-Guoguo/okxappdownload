@@ -1,74 +1,79 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<title>OKX APK 安装教程_安卓手机安装指南</title>
-<meta name="description" content="OKX(欧易)安卓 APK 安装教程。图文步骤详解：如何允许未知来源安装、如何下载并安装 OKX 客户端。支持所有安卓手机品牌。">
-<meta name="keywords" content="OKX安装教程,欧易怎么安装,安卓APK安装方法,允许未知来源,华为小米OPPO安装OKX">
+<html lang="en">
+<head><meta charset="utf-8"><title>OKX APK Installation Guide</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+<meta name="robots" content="index, follow">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#0a0e27 0%,#1a1f3a 50%,#0d1126 100%);color:#e8ecf1;padding:20px}
-nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:center;gap:24px;padding:16px;background:rgba(0,0,0,0.3);z-index:10}
-nav a{color:#8899b4;text-decoration:none;font-size:13px}
-nav a:hover,nav a.active{color:#fff}
-.content{max-width:680px;margin:80px auto 0;padding:40px 32px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;line-height:1.8}
-.content h1{font-size:24px;color:#fff;margin-bottom:24px;text-align:center}
-.content h2{font-size:18px;color:#4fc3f7;margin:28px 0 12px}
-.content h3{font-size:15px;color:#b0bec5;margin:20px 0 8px}
-.content p,.content li{font-size:14px;color:#b0bec5;margin-bottom:12px}
-.content ul,.content ol{padding-left:24px;margin-bottom:16px}
-.content code{background:rgba(255,255,255,0.08);padding:2px 8px;border-radius:4px;color:#4fc3f7;font-size:13px}
-.content .step{background:rgba(26,115,232,0.08);border-left:3px solid #1a73e8;padding:12px 16px;margin-bottom:16px;border-radius:0 8px 8px 0}
-footer{text-align:center;margin-top:40px;font-size:11px;color:rgba(255,255,255,0.2);padding-bottom:40px}
+body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#0a0e27,#1a1f3a,#0d1126);color:#e8ecf1;padding:0}
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(0,0,0,0.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:sticky;top:0;z-index:10;gap:8px}
+.nav-links{display:flex;gap:12px;flex-wrap:wrap}
+.nav-links a{color:#8899b4;text-decoration:none;font-size:12px;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:#fff;border-bottom-color:#1a73e8}
+.lang-wrap{flex-shrink:0}
+.lang-wrap select{background:rgba(255,255,255,0.1);color:#b0bec5;border:1px solid rgba(255,255,255,0.15);border-radius:5px;padding:5px 24px 5px 8px;font-size:11px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="8" height="5"%3E%3Cpath d="M0 0l4 5 4-5z" fill="%238899b4"/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;cursor:pointer;outline:none;max-width:120px}
+.lang-wrap select:focus{border-color:#1a73e8}
+.main{padding:32px 16px 40px;max-width:720px;margin:0 auto}
+.content{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 24px;line-height:1.8}
+h1{font-size:24px;color:#fff;margin-bottom:24px;text-align:center}
+h2{font-size:17px;color:#4fc3f7;margin:24px 0 10px}
+h3{font-size:14px;color:#b0bec5;margin:16px 0 6px}
+p,li{font-size:14px;color:#b0bec5;margin-bottom:10px}
+ul,ol{padding-left:22px;margin-bottom:14px}
+.step{background:rgba(26,115,232,0.08);border-left:3px solid #1a73e8;padding:10px 14px;margin-bottom:14px;border-radius:0 8px 8px 0}
+.btn-home{display:inline-block;background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff;padding:12px 36px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;margin:20px auto 0;text-align:center}
+code{background:rgba(255,255,255,0.08);padding:2px 7px;border-radius:4px;color:#4fc3f7;font-size:13px}
+footer{text-align:center;padding:32px 16px 24px;font-size:11px;color:rgba(255,255,255,0.2)}
 footer a{color:rgba(255,255,255,0.3);text-decoration:none}
-@media(max-width:480px){.content{padding:24px 16px}}</style>
+@media(min-width:768px){.top-bar{padding:12px 32px}.nav-links{gap:20px}.nav-links a{font-size:13px}.content{padding:40px 36px}}
+</style>
 </head>
 <body>
-<nav>
-  <a href="/">首页</a>
-  <a href="/install.html">安装教程</a>
-  <a href="/faq.html">常见问题</a>
-  <a href="/update.html">更新日志</a>
-</nav>
-<div class="content">
-<h1>OKX APK 安装教程</h1>
-
-<h2>第一步：下载 APK 文件</h2>
-<div class="step">点击首页的 <strong style="color:#fff">「立即下载」</strong> 按钮，将 APK 文件保存到手机。</div>
-
-<h2>第二步：允许安装未知来源应用</h2>
-<p>不同手机品牌设置位置略有不同：</p>
-
-<h3>华为 / 荣耀</h3>
-<div class="step">设置 → 安全 → 更多安全设置 → 外部来源应用检查 → 选择浏览器/文件管理器 → 允许</div>
-
-<h3>小米 / Redmi</h3>
-<div class="step">设置 → 隐私保护 → 特殊权限 → 安装未知应用 → 选择浏览器/文件管理器 → 允许</div>
-
-<h3>OPPO / vivo</h3>
-<div class="step">设置 → 安全 → 安装未知应用 → 选择浏览器/文件管理器 → 允许</div>
-
-<h3>三星</h3>
-<div class="step">设置 → 生物识别和安全性 → 安装未知应用 → 选择浏览器/文件管理器 → 允许</div>
-
-<h2>第三步：安装 APK</h2>
-<div class="step">打开手机的「文件管理器」→ 找到「下载(Download)」文件夹 → 点击 OKX APK 文件 → 点击「安装」→ 等待完成</div>
-
-<h2>第四步：打开应用</h2>
-<p>安装完成后，在桌面找到 OKX 图标，点击打开。首次启动可能需要加载资源，请耐心等待。</p>
-
-<h2>常见安装问题</h2>
-<h3>安装时提示「解析错误」</h3>
-<p>APK 文件下载不完整，请重新下载。或检查手机系统是否为 Android 7.0 以上。</p>
-
-<h3>安装时提示「应用未安装」</h3>
-<p>手机可能已安装旧版本 OKX，请先卸载旧版再安装新版。</p>
-
-<h3>点击 APK 没反应</h3>
-<p>确认已允许文件管理器安装未知来源应用的权限（见第二步）。</p>
-
+<div class="top-bar">
+  <div class="nav-links">
+    <a href="/" >Home</a>
+    <a href="/install.html" >Install Guide</a>
+    <a href="/faq.html" >FAQ</a>
+    <a href="/update.html" >Changelog</a>
+  </div>
+  <div class="lang-wrap">
+    <select id="langSwitcher" aria-label="Language">
+      <option value="en">&#x1F310; EN</option>
+      <option value="pt">&#x1F1E7;&#x1F1F7; PT</option>
+      <option value="tr">&#x1F1F9;&#x1F1F7; TR</option>
+      <option value="id">&#x1F1EE;&#x1F1E9; ID</option>
+      <option value="zh">&#x1F1E8;&#x1F1F3; 中文</option>
+    </select>
+  </div>
 </div>
-<footer>&copy; 2026 OKX App Download &nbsp;|&nbsp; <a href="/">首页</a> &nbsp;|&nbsp; <a href="/sitemap.xml">Sitemap</a></footer>
+<div class="main"><div class="content">
+
+<h1>Installation Guide</h1>
+<h2>Step 1: Download APK</h2>
+<div class="step">Click the <strong style="color:#fff">Download</strong> button on the homepage to save the APK to your phone.</div>
+<h2>Step 2: Allow Unknown Sources</h2>
+<h3>Huawei / Honor</h3>
+<div class="step">Settings → Security → More Security Settings → External Source App Check → Select Browser/File Manager → Allow</div>
+<h3>Xiaomi / Redmi</h3>
+<div class="step">Settings → Privacy Protection → Special Permissions → Install Unknown Apps → Select Browser/File Manager → Allow</div>
+<h3>OPPO / vivo</h3>
+<div class="step">Settings → Security → Install Unknown Apps → Select Browser/File Manager → Allow</div>
+<h3>Samsung</h3>
+<div class="step">Settings → Biometrics and Security → Install Unknown Apps → Select Browser/File Manager → Allow</div>
+<h2>Step 3: Install</h2>
+<div class="step">Open File Manager → Downloads folder → Tap the OKX APK → Tap Install → Wait for completion</div>
+<h2>Step 4: Launch</h2>
+<p>Find the OKX icon on your home screen and open the app.</p>
+<h2>Troubleshooting</h2>
+<h3>"Parse Error"</h3><p>APK download incomplete. Re-download. Also check Android version is 7.0+.</p>
+<h3>"App Not Installed"</h3><p>Old version may exist. Uninstall it first.</p>
+<center><a href="/" class="btn-home">&#x2B07; Back to Download</a></center>
+</div></div>
+<footer>&copy; 2026 OKX App Download</footer>
+<script>
+var T={en:{nav_home:"Home",nav_install:"Install Guide",nav_faq:"FAQ",nav_update:"Changelog"},pt:{nav_home:"Início",nav_install:"Instalar",nav_faq:"FAQ",nav_update:"Versões"},tr:{nav_home:"Ana Sayfa",nav_install:"Kurulum",nav_faq:"SSS",nav_update:"Güncelleme"},id:{nav_home:"Beranda",nav_install:"Instal",nav_faq:"FAQ",nav_update:"Riwayat"},zh:{nav_home:"首页",nav_install:"安装教程",nav_faq:"常见问题",nav_update:"更新日志"}};
+function L(){var p=new URLSearchParams(location.search);var u=p.get("lang");if(u&&T[u]){localStorage.setItem("okx_lang",u);return u}var s=localStorage.getItem("okx_lang");if(s&&T[s])return s;var bl=(navigator.language||"").toLowerCase();if(bl.startsWith("pt"))return"pt";if(bl.startsWith("tr"))return"tr";if(bl.startsWith("id"))return"id";if(bl.startsWith("zh"))return"zh";var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||"";if(/^Asia\/(Shanghai|Urumqi|Taipei|Hong_Kong|Macau)$/.test(tz))return"zh";return"en"}var lang=L();document.documentElement.lang=lang;var sel=document.getElementById("langSwitcher");if(sel){sel.value=lang;sel.addEventListener("change",function(){localStorage.setItem("okx_lang",this.value);var u=new URL(location);u.searchParams.set("lang",this.value);location.href=u.toString()})};document.querySelectorAll(".nav-links a").forEach(function(a){var h=a.getAttribute("href");if(h){var sep=h.includes("?")?"&":"?";a.href=h+sep+"lang="+lang}});document.querySelectorAll("[data-i18n]").forEach(function(e){var k=e.getAttribute("data-i18n");if(T[lang]&&T[lang][k])e.innerHTML=T[lang][k]});
+</script>
 </body>
 </html>
