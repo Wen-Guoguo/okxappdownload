@@ -9,13 +9,11 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;color:#e8ecf1;padding:0}
-.bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(0,0,0,0.4);gap:6px}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(0,0,0,0.4);gap:8px}
 .nav{display:flex;gap:8px;flex-wrap:wrap}
 .nav a{color:#9aa;text-decoration:none;font-size:12px;padding:3px 0}
 .nav a.on{color:#fff;border-bottom:1px solid #1a73e8}
-.lang{display:flex;gap:4px;flex-wrap:wrap}
-.lang a{color:#9aa;text-decoration:none;font-size:11px;padding:3px 6px;border-radius:3px}
-.lang a.on{color:#fff;background:rgba(255,255,255,0.15)}
+.lang select{background:rgba(255,255,255,0.1);color:#b0bec5;border:1px solid rgba(255,255,255,0.15);border-radius:4px;padding:4px 22px 4px 6px;font-size:11px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%238899b4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 5px center;cursor:pointer;outline:none}
 .main{display:flex;flex-direction:column;align-items:center;padding:36px 16px 40px}
 .card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:36px 22px;max-width:500px;width:100%;text-align:center}
 .badge{display:inline-block;background:#1a73e8;color:#fff;padding:5px 14px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:18px}
@@ -29,14 +27,6 @@ h1{font-size:22px;margin-bottom:4px;color:#fff}
 .links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:18px}
 .links a{color:#4fc3f7;text-decoration:none;font-size:13px}
 .ft{text-align:center;padding:20px;font-size:10px;color:rgba(255,255,255,0.15)}
-.content{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px 20px;line-height:1.7;max-width:660px;width:100%}
-.content h1{font-size:22px;text-align:center;margin-bottom:20px}
-.content h2{font-size:16px;color:#4fc3f7;margin:20px 0 8px}
-.content h3{font-size:13px;color:#b0bec5;margin:14px 0 4px}
-.content p,.content li{font-size:13px;color:#b0bec5;margin-bottom:8px}
-.content ul,.content ol{padding-left:18px;margin-bottom:12px}
-.step{background:rgba(26,115,232,0.08);border-left:3px solid #1a73e8;padding:8px 12px;margin-bottom:12px;border-radius:0 8px 8px 0}
-.btn-home{display:inline-block;background:#1a73e8;color:#fff;padding:10px 30px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none}
 @media(min-width:768px){.bar{padding:12px 28px}.nav{gap:18px}.nav a{font-size:13px}.card{padding:44px 36px}h1{font-size:26px}}
 </style>
 </head>
@@ -49,11 +39,13 @@ h1{font-size:22px;margin-bottom:4px;color:#fff}
   <a href="/update.html" id="nu">Changelog</a>
  </div>
  <div class="lang">
-  <a href="#" data-l="en">EN</a>
-  <a href="#" data-l="pt">PT</a>
-  <a href="#" data-l="tr">TR</a>
-  <a href="#" data-l="id">ID</a>
-  <a href="#" data-l="zh">中文</a>
+  <select id="langSwitcher">
+   <option value="en">English</option>
+   <option value="pt">Portugu&ecirc;s</option>
+   <option value="tr">T&uuml;rk&ccedil;e</option>
+   <option value="id">Bahasa Indonesia</option>
+   <option value="zh">&#x4E2D;&#x6587;</option>
+  </select>
  </div>
 </div>
 <div class="main">
@@ -74,45 +66,38 @@ h1{font-size:22px;margin-bottom:4px;color:#fff}
 <div class="ft">&copy; 2026 OKX App Download</div>
 
 <script>
-// === INLINE I18N - no external files ===
-var L = {
+var L={
 en:{badge:"2026 Latest v6.179.0",title:"Download OKX APK",desc:"Official Original Android App<br>Android 7.0+ | Safe | Free Download",info_original:"Official Original",nh:"Home",ni:"Install Guide",nf:"FAQ",nu:"Changelog",li_install:"Install Guide",li_faq:"FAQ",li_update:"Changelog"},
 pt:{badge:"2026 v6.179.0",title:"Baixar OKX APK",desc:"Aplicativo Android Oficial Original<br>Android 7.0+ | Seguro | Download Gr&aacute;tis",info_original:"Original Oficial",nh:"In&iacute;cio",ni:"Instalar",nf:"FAQ",nu:"Vers&otilde;es",li_install:"Guia",li_faq:"Perguntas",li_update:"Hist&oacute;rico"},
 tr:{badge:"2026 En Yeni v6.179.0",title:"OKX APK &Idot;ndir",desc:"Resmi Orijinal Android Uygulamas&imath;<br>Android 7.0+ | G&uuml;venli | &Uuml;cretsiz",info_original:"Resmi Orijinal",nh:"Ana Sayfa",ni:"Kurulum",nf:"SSS",nu:"G&uuml;ncelleme",li_install:"Kurulum",li_faq:"SSS",li_update:"G&uuml;ncelleme"},
 id:{badge:"2026 Terbaru v6.179.0",title:"Unduh OKX APK",desc:"Aplikasi Android Resmi Original<br>Android 7.0+ | Aman | Gratis",info_original:"Resmi Original",nh:"Beranda",ni:"Instal",nf:"FAQ",nu:"Riwayat",li_install:"Panduan",li_faq:"Tanya Jawab",li_update:"Riwayat"},
 zh:{badge:"2026 最新版 v6.179.0",title:"OKX 欧易 APK 下载",desc:"官方原版安卓客户端<br>Android 7.0+ | 安全无毒 | 免费下载",info_original:"官方原版",nh:"首页",ni:"安装教程",nf:"常见问题",nu:"更新日志",li_install:"安装教程",li_faq:"常见问题",li_update:"更新日志"}
 };
-var T_titles={en:"OKX APK Download",pt:"Baixar OKX APK",tr:"OKX APK İndir",id:"Unduh OKX APK",zh:"OKX APK 下载 - 欧易安卓客户端"};
+var T={en:"OKX APK Download",pt:"Baixar OKX APK",tr:"OKX APK Indir",id:"Unduh OKX APK",zh:"OKX APK - 欧易安卓客户端"};
 
-function getLang(){
+function G(){
   var p=new URLSearchParams(location.search);var u=p.get('lang');
-  if(u&&L[u]){localStorage.setItem('okx_lang',u);return u}
+  if(u&&L[u])return u;
   var s=localStorage.getItem('okx_lang');if(s&&L[s])return s;
   var bl=(navigator.language||'').toLowerCase();
   if(bl.startsWith('pt'))return'pt';if(bl.startsWith('tr'))return'tr';if(bl.startsWith('id'))return'id';if(bl.startsWith('zh'))return'zh';
   var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
   return /^Asia\/(Shanghai|Urumqi|Taipei|Hong_Kong|Macau)$/.test(tz)?'zh':'en';
 }
-var l=getLang();
-document.title=T_titles[l]||T_titles.en;
+var l=G();
+localStorage.setItem('okx_lang',l);
+document.title=T[l]||T.en;
 
-// Apply translations
 var d=L[l];
 for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
 
-// Language switcher links
-document.querySelectorAll('.lang a').forEach(function(a){
-  a.href='?lang='+a.getAttribute('data-l');
-  if(a.getAttribute('data-l')===l)a.classList.add('on');
-});
+// Dropdown
+var sel=document.getElementById('langSwitcher');
+if(sel){sel.value=l;sel.addEventListener('change',function(){localStorage.setItem('okx_lang',this.value);location.reload()})}
 
-// Nav active state
+// Nav active
 var p=location.pathname||'/';
-if(p!=='/'){
-  document.getElementById('nh').classList.remove('on');
-  var map={'/install.html':'ni','/faq.html':'nf','/update.html':'nu'};
-  var id=map[p];if(id)document.getElementById(id).classList.add('on');
-}
+if(p!=='/'){document.getElementById('nh').classList.remove('on');var m={'/install.html':'ni','/faq.html':'nf','/update.html':'nu'};var id=m[p];if(id)document.getElementById(id).classList.add('on')}
 </script>
 </body>
 </html>
