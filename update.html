@@ -1,30 +1,60 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-// Cookie helper
-function sc(n,v,d){var e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=n+'='+encodeURIComponent(v)+';expires='+e.toUTCString()+';path=/;SameSite=Lax'}
-function gc(n){var m=document.cookie.match('(^|; )'+n+'=([^;]*)');return m?decodeURIComponent(m[2]):null}
-
-var T={
-en:{badge:"2026 Latest v6.179.0",title:"Download OKX APK",desc:"Official Original Android App<br>Android 7.0+ | Safe | Free Download",btn:"&#x2B07; Download Now",info_original:"Official Original",nh:"Home",ni:"Install Guide",nf:"FAQ",nu:"Changelog",li_install:"Install Guide",li_faq:"FAQ",li_update:"Changelog",has_dropdown:1},
+(function(){
+var L={en:1,pt:1,tr:1,id:1,zh:1};
+var D={
+en:{badge:"2026 Latest v6.179.0",title:"Download OKX APK",desc:"Official Original Android App<br>Android 7.0+ | Safe | Free Download",btn:"&#x2B07; Download Now",info_original:"Official Original",nh:"Home",ni:"Install Guide",nf:"FAQ",nu:"Changelog",li_install:"Install Guide",li_faq:"FAQ",li_update:"Changelog"},
 pt:{badge:"2026 v6.179.0",title:"Baixar OKX APK",desc:"Aplicativo Android Oficial Original<br>Android 7.0+ | Seguro | Download Gr&aacute;tis",btn:"&#x2B07; Baixar Agora",info_original:"Original Oficial",nh:"In&iacute;cio",ni:"Instalar",nf:"FAQ",nu:"Vers&otilde;es",li_install:"Guia",li_faq:"Perguntas",li_update:"Hist&oacute;rico"},
 tr:{badge:"2026 En Yeni v6.179.0",title:"OKX APK &Idot;ndir",desc:"Resmi Orijinal Android Uygulamas&imath;<br>Android 7.0+ | G&uuml;venli | &Uuml;cretsiz",btn:"&#x2B07; Hemen &Idot;ndir",info_original:"Resmi Orijinal",nh:"Ana Sayfa",ni:"Kurulum",nf:"SSS",nu:"G&uuml;ncelleme",li_install:"Kurulum",li_faq:"SSS",li_update:"G&uuml;ncelleme"},
 id:{badge:"2026 Terbaru v6.179.0",title:"Unduh OKX APK",desc:"Aplikasi Android Resmi Original<br>Android 7.0+ | Aman | Gratis",btn:"&#x2B07; Unduh Sekarang",info_original:"Resmi Original",nh:"Beranda",ni:"Instal",nf:"FAQ",nu:"Riwayat",li_install:"Panduan",li_faq:"Tanya Jawab",li_update:"Riwayat"},
-zh:{badge:"2026 最新版 v6.179.0",title:"OKX 欧易 APK 下载",desc:"官方原版安卓客户端<br>Android 7.0+ | 安全无毒 | 免费下载",btn:"&#x2B07; 立即下载",info_original:"官方原版",nh:"首页",ni:"安装教程",nf:"常见问题",nu:"更新日志",li_install:"安装教程",li_faq:"常见问题",li_update:"更新日志",has_dropdown:1}
+zh:{badge:"2026 最新版 v6.179.0",title:"OKX 欧易 APK 下载",desc:"官方原版安卓客户端<br>Android 7.0+ | 安全无毒 | 免费下载",btn:"&#x2B07; 立即下载",info_original:"官方原版",nh:"首页",ni:"安装教程",nf:"常见问题",nu:"更新日志",li_install:"安装教程",li_faq:"常见问题",li_update:"更新日志"}
 };
+var T={en:"OKX APK Download",pt:"Baixar OKX APK",tr:"OKX APK Indir",id:"Unduh OKX APK",zh:"OKX APK - 欧易安卓客户端"};
 
-// Detect lang
-var l=gc('lang');
-if(!l||!T[l]){
-  var bl=(navigator.language||'').toLowerCase();
-  if(bl.startsWith('pt'))l='pt';else if(bl.startsWith('tr'))l='tr';else if(bl.startsWith('id'))l='id';else if(bl.startsWith('zh'))l='zh';
-  else{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';l=/^Asia\/(Shanghai|Urumqi|Taipei|Hong_Kong|Macau)$/.test(tz)?'zh':'en'}
-  sc('lang',l,365)
+// Get lang from URL param, or detect
+var p=new URLSearchParams(location.search);
+var l=p.get('lang');
+if(!l||!L[l]){
+ var bl=(navigator.language||'').toLowerCase();
+ if(bl.startsWith('pt'))l='pt';else if(bl.startsWith('tr'))l='tr';else if(bl.startsWith('id'))l='id';else if(bl.startsWith('zh'))l='zh';
+ else{var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';l=/Asia\/(Shanghai|Urumqi|Taipei|Hong_Kong|Macau)/.test(tz)?'zh':'en'}
 }
+
 document.documentElement.lang=l;
-var d=T[l]||T.en,p=location.pathname||'/';
+document.title=T[l]||T.en;
+
+// Add lang param to ALL internal links
+function addLang(u){
+ if(u.startsWith('http')||u.startsWith('#')||u.startsWith('mailto')||u.startsWith('javascript'))return u;
+ var sep=u.includes('?')?'&':'?';
+ if(u.includes('lang='))return u;
+ return u+sep+'lang='+l;
+}
+document.addEventListener('DOMContentLoaded',function(){
+ // Apply translations
+ var d=D[l]||D.en;
+ for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
+ // Update all links
+ document.querySelectorAll('a').forEach(function(a){
+  var h=a.getAttribute('href');
+  if(h)a.href=addLang(h);
+ });
+ // Dropdown
+ var s=document.getElementById('langSwitcher');
+ if(s){s.value=l;s.addEventListener('change',function(){location.href=addLang(location.pathname+'?lang='+this.value)})}
+ // Nav highlight
+ var path=location.pathname||'/';
+ if(path!=='/'){
+  var e=document.getElementById('nh');if(e)e.classList.remove('on');
+  var m={'/install.html':'ni','/faq.html':'nf','/update.html':'nu'};
+  var id=m[path];if(id){var a=document.getElementById(id);if(a)a.classList.add('on')}
+ }
+});
+})();
 </script>
-<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;color:#e8ecf1;padding:0}
 .bar{display:flex;align-items:center;padding:10px 14px;background:rgba(0,0,0,0.4)}
 .nav{display:flex;gap:8px;flex-wrap:wrap}
@@ -53,16 +83,4 @@ body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;
 <h2>How to Update</h2><p>Download latest APK and install over old version.</p>
 <center><a href="/" class="btn-home">&#x2B07; Back to Download Latest</a></center></div></div>
 <div class="ft">&copy; 2026 OKX App Download</div>
-<script>
-// Apply translations
-for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
-document.title=d.title||document.title;
-
-// Dropdown
-var s=document.getElementById('langSwitcher');
-if(s){s.value=l;s.addEventListener('change',function(){sc('lang',this.value,365);location.reload()})}
-
-// Nav active
-if(p!=='/'){var e=document.getElementById('nh');if(e)e.classList.remove('on');var m={'/install.html':'ni','/faq.html':'nf','/update.html':'nu'};var id=m[p];if(id){var a=document.getElementById(id);if(a)a.classList.add('on')}}
-</script>
 </body></html>
