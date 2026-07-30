@@ -182,6 +182,13 @@ document.querySelectorAll('[data-i18n]').forEach(function(el){
   if (T[L] && T[L][k]) el.innerHTML = T[L][k];
 });
 document.title = pageTitles[L] || pageTitles.en;
+// Pass lang to all internal links
+document.querySelectorAll('.nav-links a, .links a').forEach(function(a){
+  var h = a.getAttribute('href');
+  if (h && h.startsWith('/') && !h.includes('lang=')) {
+    a.href = h + (h.includes('?')?'&':'?') + 'lang=' + L;
+  }
+});
 </script>
 </body>
 </html>
