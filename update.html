@@ -1,50 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta charset="utf-8"><title>OKX APK Changelog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="index, follow">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#0a0e27,#1a1f3a,#0d1126);color:#e8ecf1;padding:0}
-.top-bar{display:flex;align-items:center;padding:10px 16px;background:rgba(0,0,0,0.35);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
-.nav-links{display:flex;gap:10px;flex-wrap:wrap}
-.nav-links a{color:#8899b4;text-decoration:none;font-size:12px;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s}
-.nav-links a:hover,.nav-links a.active{color:#fff;border-bottom-color:#1a73e8}
-.main{padding:32px 16px 40px;max-width:720px;margin:0 auto}
-.content{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 24px;line-height:1.8}
-h1{font-size:24px;color:#fff;margin-bottom:24px;text-align:center}
-h2{font-size:17px;color:#4fc3f7;margin:24px 0 10px}
-h3{font-size:14px;color:#b0bec5;margin:16px 0 6px}
-p,li{font-size:14px;color:#b0bec5;margin-bottom:10px}
-ul,ol{padding-left:22px;margin-bottom:14px}
-.step{background:rgba(26,115,232,0.08);border-left:3px solid #1a73e8;padding:10px 14px;margin-bottom:14px;border-radius:0 8px 8px 0}
-.btn-home{display:inline-block;background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff;padding:12px 36px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;margin:20px auto 0;text-align:center}
-footer{text-align:center;padding:24px 16px 32px;font-size:11px;color:rgba(255,255,255,0.2)}
-@media(min-width:768px){.top-bar{padding:12px 32px}.nav-links{gap:20px}.nav-links a{font-size:13px}.content{padding:40px 36px}}
-</style>
-</head>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;color:#e8ecf1;padding:0}
+.bar{display:flex;align-items:center;padding:10px 14px;background:rgba(0,0,0,0.4)}
+.nav{display:flex;gap:8px;flex-wrap:wrap}
+.nav a{color:#9aa;text-decoration:none;font-size:12px;padding:3px 0}
+.nav a.on{color:#fff;border-bottom:1px solid #1a73e8}
+.main{display:flex;flex-direction:column;align-items:center;padding:32px 16px 40px}
+.content{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px 20px;line-height:1.7;max-width:660px;width:100%}
+.content h1{font-size:22px;text-align:center;margin-bottom:20px;color:#fff}
+.content h2{font-size:16px;color:#4fc3f7;margin:20px 0 8px}
+.content h3{font-size:13px;color:#b0bec5;margin:14px 0 4px}
+.content p,.content li{font-size:13px;color:#b0bec5;margin-bottom:8px}
+.content ul,.content ol{padding-left:18px;margin-bottom:12px}
+.step{background:rgba(26,115,232,0.08);border-left:3px solid #1a73e8;padding:8px 12px;margin-bottom:12px;border-radius:0 8px 8px 0}
+.btn-home{display:inline-block;background:#1a73e8;color:#fff;padding:10px 30px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none}
+.ft{text-align:center;padding:20px;font-size:10px;color:rgba(255,255,255,0.15)}
+@media(min-width:768px){.bar{padding:12px 28px}.nav{gap:18px}.nav a{font-size:13px}.content{padding:36px 28px}}</style></head>
 <body>
-<div class="top-bar">
-  <div class="nav-links">
-    <a href="/" data-i18n="nav_home">Home</a>
-    <a href="/install.html" data-i18n="nav_install">Install Guide</a>
-    <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
-    <a href="/update.html" data-i18n="nav_update">Changelog</a>
-  </div>
-</div>
+<div class="bar"><div class="nav">
+ <a href="/" id="nh">Home</a>
+ <a href="/install.html" id="ni">Install Guide</a>
+ <a href="/faq.html" id="nf">FAQ</a>
+ <a href="/update.html" id="nu">Changelog</a>
+</div></div>
 <div class="main"><div class="content">
 <h1>Version History</h1>
-<h2>v6.179.0 <span style="font-size:13px;color:#8899b4;font-weight:400">— July 2026</span></h2>
+<h2>v6.179.0 <span style="font-size:13px;color:#8899b4;font-weight:400">- July 2026</span></h2>
 <ul><li>Current latest version</li><li>Bug fixes and trading improvements</li><li>Faster startup</li><li>Size: 382 MB</li></ul>
-<h2>v6.166.0 <span style="font-size:13px;color:#8899b4;font-weight:400">— May 2026</span></h2>
+<h2>v6.166.0 <span style="font-size:13px;color:#8899b4;font-weight:400">- May 2026</span></h2>
 <ul><li>UI improvements</li><li>Security enhancements</li><li>Device compatibility fixes</li></ul>
-<h2>v6.160.0 <span style="font-size:13px;color:#8899b4;font-weight:400">— March 2026</span></h2>
+<h2>v6.160.0 <span style="font-size:13px;color:#8899b4;font-weight:400">- March 2026</span></h2>
 <ul><li>New trading features</li><li>Performance optimization</li><li>Bug fixes</li></ul>
-<h2>How to Update</h2><p>Download latest APK and install over old version. No uninstall needed.</p>
+<h2>How to Update</h2><p>Download latest APK and install over old version.</p>
 <center><a href="/" class="btn-home">&#x2B07; Back to Download Latest</a></center>
 </div></div>
-<footer>&copy; 2026 OKX App Download</footer>
-<script src="/i18n.js?v=2"></script>
-</body>
-</html>
+<div class="ft">&copy; 2026 OKX App Download</div>
+<script>
+var L={en:{nh:"Home",ni:"Install Guide",nf:"FAQ",nu:"Changelog"},pt:{nh:"Início",ni:"Instalar",nf:"FAQ",nu:"Versões"},tr:{nh:"Ana Sayfa",ni:"Kurulum",nf:"SSS",nu:"Güncelleme"},id:{nh:"Beranda",ni:"Instal",nf:"FAQ",nu:"Riwayat"},zh:{nh:"首页",ni:"安装教程",nf:"常见问题",nu:"更新日志"}};
+var l=(new URLSearchParams(location.search)).get("lang")||localStorage.getItem("okx_lang")||"en";
+var d=L[l]||L.en;for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
+var m={"/install.html":"ni","/faq.html":"nf","/update.html":"nu"};var id=m[location.pathname];if(id){var e=document.getElementById(id);if(e)e.classList.add("on")}
+</script>
+</body></html>
