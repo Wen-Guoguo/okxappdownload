@@ -25,22 +25,30 @@ body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;
  <a href="/faq.html" id="nf">FAQ</a>
  <a href="/update.html" id="nu">Changelog</a>
 </div></div>
-<div class="main"><div class="content">
-<h1>Frequently Asked Questions</h1>
+<div class="main"><div class="content"><h1>Frequently Asked Questions</h1>
 <h2>Is this APK safe?</h2><p>Official OKX APK, unmodified. SHA256 hash verification available.</p>
-<h2>Why not on App Store?</h2><p>Regional regulations may block OKX in certain countries. This page provides the Android APK.</p>
-<h2>How to verify the file?</h2><div class="step">Compute SHA256 of the APK and compare with official value from okx.com.</div>
+<h2>Why not on App Store?</h2><p>Regional regulations may block OKX in certain App Stores.</p>
+<h2>How to verify the file?</h2><div class="step">Compute SHA256 and compare with official value from okx.com.</div>
 <h2>Does it auto-update?</h2><p>OKX has built-in update detection.</p>
 <h2>Download is slow?</h2><p>Hosted on GitHub. Try off-peak hours.</p>
 <h2>App crashes?</h2><p>Re-download, check Android 7.0+, or free storage space.</p>
 <h2>How to install on iOS?</h2><p>iOS cannot install APK. Use overseas Apple ID and search OKX in App Store.</p>
-<center><a href="/" class="btn-home">&#x2B07; Back to Download</a></center>
-</div></div>
+<center><a href="/" class="btn-home">&#x2B07; Back to Download</a></center></div></div>
 <div class="ft">&copy; 2026 OKX App Download</div>
 <script>
 var L={en:{nh:"Home",ni:"Install Guide",nf:"FAQ",nu:"Changelog"},pt:{nh:"Início",ni:"Instalar",nf:"FAQ",nu:"Versões"},tr:{nh:"Ana Sayfa",ni:"Kurulum",nf:"SSS",nu:"Güncelleme"},id:{nh:"Beranda",ni:"Instal",nf:"FAQ",nu:"Riwayat"},zh:{nh:"首页",ni:"安装教程",nf:"常见问题",nu:"更新日志"}};
-var l=(new URLSearchParams(location.search)).get("lang")||localStorage.getItem("okx_lang")||"en";
-var d=L[l]||L.en;for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
-var m={"/install.html":"ni","/faq.html":"nf","/update.html":"nu"};var id=m[location.pathname];if(id){var e=document.getElementById(id);if(e)e.classList.add("on")}
+// 1. URL param (from homepage lang switch)
+var p=new URLSearchParams(location.search);
+var u=p.get('lang');
+// 2. localStorage (persisted preference)
+var s=localStorage.getItem('okx_lang');
+var l=u||s||'en';
+if(!L[l])l='en';
+// Save for consistency
+if(u)localStorage.setItem('okx_lang',u);
+var d=L[l]||L.en;
+for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
+var m={"/install.html":"ni","/faq.html":"nf","/update.html":"nu"};
+var id=m[location.pathname];if(id){var e=document.getElementById(id);if(e)e.classList.add("on")}
 </script>
 </body></html>
