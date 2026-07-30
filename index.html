@@ -38,7 +38,8 @@ body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Ro
 .main{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 16px 40px;min-height:calc(100vh - 50px)}
 .card{background:rgba(255,255,255,0.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px 24px;max-width:520px;width:100%;box-shadow:0 8px 32px rgba(0,0,0,0.25);text-align:center}
 .badge{display:inline-block;background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff;padding:5px 16px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:20px;letter-spacing:0.5px}
-.logo{margin:0 auto 16px;width:72px;height:72px}
+.logo{width:72px;height:72px;border-radius:18px;background:#000;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.logo span{font-family:Arial,Helvetica,sans-serif;font-size:32px;font-weight:900;color:#fff;letter-spacing:-1px}
 h1{font-size:24px;font-weight:700;margin-bottom:6px;color:#fff;line-height:1.3}
 .desc{font-size:14px;color:#8899b4;margin-bottom:28px;line-height:1.6}
 .btn{display:inline-block;background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff;padding:16px 56px;border-radius:50px;font-size:19px;font-weight:700;text-decoration:none;transition:all 0.3s;box-shadow:0 4px 24px rgba(26,115,232,0.45);letter-spacing:1.5px;margin-bottom:22px}
@@ -82,7 +83,7 @@ footer{text-align:center;padding:32px 16px 24px;font-size:11px;color:rgba(255,25
 <div class="card">
   <span class="badge" data-i18n="badge">2026 Latest v6.179.0</span>
   <!-- OKX Logo SVG -->
-  <div class="logo"><img src="https://www.okx.com/favicon.ico" alt="OKX" width="72" height="72" style="border-radius:18px" onerror="this.onerror=null;this.style.display='none';this.parentElement.innerHTML='<div style=width:72px;height:72px;border-radius:18px;background:#000;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:30px;color:#fff;margin:0 auto>OKX</div>'"></div>
+  <div class="logo"><span>OKX</span></div>
   <h1 data-i18n="title">Download OKX APK</h1>
   <p class="desc" data-i18n="desc">Official Original Android App<br>Android 7.0+  |  Safe &amp; Virus-Free  |  Free Download</p>
 
