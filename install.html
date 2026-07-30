@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><title>OKX APK Installation Guide</title>
+<head><meta charset="utf-8"><title>Install Guide</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#0a0e27,#1a1f3a,#0d1126);color:#e8ecf1;padding:0}
-.top-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(0,0,0,0.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);position:sticky;top:0;z-index:10;gap:8px}
-.nav-links{display:flex;gap:12px;flex-wrap:wrap}
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(0,0,0,0.35);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10;gap:6px}
+.nav-links{display:flex;gap:10px;flex-wrap:wrap}
 .nav-links a{color:#8899b4;text-decoration:none;font-size:12px;white-space:nowrap;padding:4px 0;border-bottom:2px solid transparent;transition:all 0.2s}
 .nav-links a:hover,.nav-links a.active{color:#fff;border-bottom-color:#1a73e8}
-.lang-wrap{flex-shrink:0}
-.lang-wrap select{background:rgba(255,255,255,0.1);color:#b0bec5;border:1px solid rgba(255,255,255,0.15);border-radius:5px;padding:5px 24px 5px 8px;font-size:11px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="8" height="5"%3E%3Cpath d="M0 0l4 5 4-5z" fill="%238899b4"/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;cursor:pointer;outline:none;max-width:120px}
-.lang-wrap select:focus{border-color:#1a73e8}
+.lang-wrap select{background:rgba(255,255,255,0.1);color:#b0bec5;border:1px solid rgba(255,255,255,0.15);border-radius:5px;padding:5px 22px 5px 8px;font-size:11px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%238899b4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;cursor:pointer;outline:none;max-width:120px}
 .main{padding:32px 16px 40px;max-width:720px;margin:0 auto}
 .content{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px 24px;line-height:1.8}
 h1{font-size:24px;color:#fff;margin-bottom:24px;text-align:center}
@@ -23,35 +21,32 @@ p,li{font-size:14px;color:#b0bec5;margin-bottom:10px}
 ul,ol{padding-left:22px;margin-bottom:14px}
 .step{background:rgba(26,115,232,0.08);border-left:3px solid #1a73e8;padding:10px 14px;margin-bottom:14px;border-radius:0 8px 8px 0}
 .btn-home{display:inline-block;background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff;padding:12px 36px;border-radius:50px;font-size:15px;font-weight:600;text-decoration:none;margin:20px auto 0;text-align:center}
-code{background:rgba(255,255,255,0.08);padding:2px 7px;border-radius:4px;color:#4fc3f7;font-size:13px}
-footer{text-align:center;padding:32px 16px 24px;font-size:11px;color:rgba(255,255,255,0.2)}
-footer a{color:rgba(255,255,255,0.3);text-decoration:none}
+footer{text-align:center;padding:24px 16px 32px;font-size:11px;color:rgba(255,255,255,0.2)}
 @media(min-width:768px){.top-bar{padding:12px 32px}.nav-links{gap:20px}.nav-links a{font-size:13px}.content{padding:40px 36px}}
 </style>
 </head>
 <body>
 <div class="top-bar">
   <div class="nav-links">
-    <a href="/" >Home</a>
-    <a href="/install.html" >Install Guide</a>
-    <a href="/faq.html" >FAQ</a>
-    <a href="/update.html" >Changelog</a>
+    <a href="/" data-i18n="nav_home">Home</a>
+    <a href="/install.html" data-i18n="nav_install">Install Guide</a>
+    <a href="/faq.html" data-i18n="nav_faq">FAQ</a>
+    <a href="/update.html" data-i18n="nav_update">Changelog</a>
   </div>
   <div class="lang-wrap">
-    <select id="langSwitcher" aria-label="Language">
-      <option value="en">&#x1F310; EN</option>
-      <option value="pt">&#x1F1E7;&#x1F1F7; PT</option>
-      <option value="tr">&#x1F1F9;&#x1F1F7; TR</option>
-      <option value="id">&#x1F1EE;&#x1F1E9; ID</option>
-      <option value="zh">&#x1F1E8;&#x1F1F3; 中文</option>
+    <select id="langSwitcher">
+      <option value="en">EN</option>
+      <option value="pt">PT</option>
+      <option value="tr">TR</option>
+      <option value="id">ID</option>
+      <option value="zh">中文</option>
     </select>
   </div>
 </div>
 <div class="main"><div class="content">
-
 <h1>Installation Guide</h1>
 <h2>Step 1: Download APK</h2>
-<div class="step">Click the <strong style="color:#fff">Download</strong> button on the homepage to save the APK to your phone.</div>
+<div class="step">Click the Download button on the homepage to save the APK to your phone.</div>
 <h2>Step 2: Allow Unknown Sources</h2>
 <h3>Huawei / Honor</h3>
 <div class="step">Settings → Security → More Security Settings → External Source App Check → Select Browser/File Manager → Allow</div>
@@ -62,18 +57,14 @@ footer a{color:rgba(255,255,255,0.3);text-decoration:none}
 <h3>Samsung</h3>
 <div class="step">Settings → Biometrics and Security → Install Unknown Apps → Select Browser/File Manager → Allow</div>
 <h2>Step 3: Install</h2>
-<div class="step">Open File Manager → Downloads folder → Tap the OKX APK → Tap Install → Wait for completion</div>
-<h2>Step 4: Launch</h2>
-<p>Find the OKX icon on your home screen and open the app.</p>
+<div class="step">Open File Manager → Downloads → Tap the OKX APK → Tap Install → Wait</div>
+<h2>Step 4: Launch</h2><p>Find OKX icon on your home screen and open.</p>
 <h2>Troubleshooting</h2>
-<h3>"Parse Error"</h3><p>APK download incomplete. Re-download. Also check Android version is 7.0+.</p>
-<h3>"App Not Installed"</h3><p>Old version may exist. Uninstall it first.</p>
+<h3>"Parse Error"</h3><p>APK download incomplete. Re-download. Requires Android 7.0+.</p>
+<h3>"App Not Installed"</h3><p>Uninstall old version first.</p>
 <center><a href="/" class="btn-home">&#x2B07; Back to Download</a></center>
 </div></div>
 <footer>&copy; 2026 OKX App Download</footer>
-<script>
-var T={en:{nav_home:"Home",nav_install:"Install Guide",nav_faq:"FAQ",nav_update:"Changelog"},pt:{nav_home:"Início",nav_install:"Instalar",nav_faq:"FAQ",nav_update:"Versões"},tr:{nav_home:"Ana Sayfa",nav_install:"Kurulum",nav_faq:"SSS",nav_update:"Güncelleme"},id:{nav_home:"Beranda",nav_install:"Instal",nav_faq:"FAQ",nav_update:"Riwayat"},zh:{nav_home:"首页",nav_install:"安装教程",nav_faq:"常见问题",nav_update:"更新日志"}};
-function L(){var p=new URLSearchParams(location.search);var u=p.get("lang");if(u&&T[u]){localStorage.setItem("okx_lang",u);return u}var s=localStorage.getItem("okx_lang");if(s&&T[s])return s;var bl=(navigator.language||"").toLowerCase();if(bl.startsWith("pt"))return"pt";if(bl.startsWith("tr"))return"tr";if(bl.startsWith("id"))return"id";if(bl.startsWith("zh"))return"zh";var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||"";if(/^Asia\/(Shanghai|Urumqi|Taipei|Hong_Kong|Macau)$/.test(tz))return"zh";return"en"}var lang=L();document.documentElement.lang=lang;var sel=document.getElementById("langSwitcher");if(sel){sel.value=lang;sel.addEventListener("change",function(){localStorage.setItem("okx_lang",this.value);var u=new URL(location);u.searchParams.set("lang",this.value);location.href=u.toString()})};document.querySelectorAll(".nav-links a").forEach(function(a){var h=a.getAttribute("href");if(h){var sep=h.includes("?")?"&":"?";a.href=h+sep+"lang="+lang}});document.querySelectorAll("[data-i18n]").forEach(function(e){var k=e.getAttribute("data-i18n");if(T[lang]&&T[lang][k])e.innerHTML=T[lang][k]});
-</script>
+<script src="/i18n.js"></script>
 </body>
 </html>
