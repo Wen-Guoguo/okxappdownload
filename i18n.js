@@ -1,4 +1,5 @@
-// Shared i18n - used by all pages (index.html, install.html, faq.html, update.html)
+(function(){
+// === Shared i18n for all pages ===
 var T = {
   en: {
     badge:"2026 Latest v6.179.0",title:"Download OKX APK",
@@ -45,59 +46,47 @@ var pageTitles = {
   zh:"OKX APK 下载 - 欧易安卓客户端 2026"
 };
 
-function detectLang() {
-  var p = new URLSearchParams(location.search);
-  var u = p.get('lang');
-  if (u && T[u]) { localStorage.setItem('okx_lang', u); return u; }
-  var s = localStorage.getItem('okx_lang');
-  if (s && T[s]) return s;
-  var bl = (navigator.language || navigator.userLanguage || '').toLowerCase();
-  if (bl.startsWith('pt')) return 'pt';
-  if (bl.startsWith('tr')) return 'tr';
-  if (bl.startsWith('id')) return 'id';
-  if (bl.startsWith('zh')) return 'zh';
-  var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-  if (/^Asia\/(Shanghai|Urumqi|Taipei|Hong_Kong|Macau)$/.test(tz)) return 'zh';
-  return 'en';
+// 1. Determine language
+var lang = localStorage.getItem('okx_lang');
+if (!lang || !T[lang]) {
+  var bl = (navigator.language || '').toLowerCase();
+  if (bl.startsWith('pt')) lang = 'pt';
+  else if (bl.startsWith('tr')) lang = 'tr';
+  else if (bl.startsWith('id')) lang = 'id';
+  else if (bl.startsWith('zh')) lang = 'zh';
+  else {
+    // Check timezone for Chinese users
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    if (/^Asia\/(Shanghai|Urumqi|Taipei|Hong_Kong|Macau)$/.test(tz)) lang = 'zh';
+    else lang = 'en';
+  }
+  localStorage.setItem('okx_lang', lang);
 }
 
-var lang = detectLang();
+// 2. Apply language
 document.documentElement.lang = lang;
+document.title = pageTitles[lang] || pageTitles.en;
 
-// Set dropdown
-var sel = document.getElementById('langSwitcher');
-if (sel) {
-  sel.value = lang;
-  sel.addEventListener('change', function() {
-    localStorage.setItem('okx_lang', this.value);
-    var u = new URL(location.href);
-    u.searchParams.set('lang', this.value);
-    location.href = u.toString();
-  });
-}
-
-// Apply i18n to elements
-document.querySelectorAll('[data-i18n]').forEach(function(el) {
+// Translate
+document.querySelectorAll('[data-i18n]').forEach(function(el){
   var k = el.getAttribute('data-i18n');
   if (T[lang] && T[lang][k]) el.innerHTML = T[lang][k];
 });
 
-// Update page title
-document.title = pageTitles[lang] || pageTitles.en;
+// 3. Language switcher
+var sel = document.getElementById('langSwitcher');
+if (sel) {
+  sel.value = lang;
+  sel.addEventListener('change', function(){
+    localStorage.setItem('okx_lang', this.value);
+    location.reload();  // Simple reload, no URL params
+  });
+}
 
-// Pass lang to all internal links
-document.querySelectorAll('.nav-links a, .links a, .card a[href^="/"]').forEach(function(a) {
-  var h = a.getAttribute('href');
-  if (h && h.startsWith('/') && !h.includes('lang=')) {
-    a.href = h + (h.includes('?') ? '&' : '?') + 'lang=' + lang;
-  }
+// 4. Highlight current nav item
+var path = location.pathname || '/';
+document.querySelectorAll('.nav-links a').forEach(function(a){
+  var href = a.getAttribute('href');
+  if (href === path || (path === '/' && href === '/')) a.classList.add('active');
 });
-
-// Highlight current page nav
-var path = location.pathname;
-document.querySelectorAll('.nav-links a').forEach(function(a) {
-  var ah = new URL(a.href).pathname;
-  if (ah === path || (path === '/' && ah === '/')) {
-    a.classList.add('active');
-  }
-});
+})();
