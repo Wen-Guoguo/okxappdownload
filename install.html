@@ -25,8 +25,7 @@ body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;
  <a href="/faq.html" id="nf">FAQ</a>
  <a href="/update.html" id="nu">Changelog</a>
 </div></div>
-<div class="main"><div class="content">
-<h1>Installation Guide</h1>
+<div class="main"><div class="content"><h1>Installation Guide</h1>
 <h2>Step 1: Download APK</h2><div class="step">Click the Download button on the homepage to save the APK.</div>
 <h2>Step 2: Allow Unknown Sources</h2>
 <h3>Huawei / Honor</h3><div class="step">Settings > Security > More Security Settings > External Source App Check > Allow</div>
@@ -38,13 +37,22 @@ body{min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:#0a0e27;
 <h2>Troubleshooting</h2>
 <h3>Parse Error</h3><p>APK incomplete. Re-download. Needs Android 7.0+.</p>
 <h3>App Not Installed</h3><p>Uninstall old version first.</p>
-<center><a href="/" class="btn-home">&#x2B07; Back to Download</a></center>
-</div></div>
+<center><a href="/" class="btn-home">&#x2B07; Back to Download</a></center></div></div>
 <div class="ft">&copy; 2026 OKX App Download</div>
 <script>
 var L={en:{nh:"Home",ni:"Install Guide",nf:"FAQ",nu:"Changelog"},pt:{nh:"Início",ni:"Instalar",nf:"FAQ",nu:"Versões"},tr:{nh:"Ana Sayfa",ni:"Kurulum",nf:"SSS",nu:"Güncelleme"},id:{nh:"Beranda",ni:"Instal",nf:"FAQ",nu:"Riwayat"},zh:{nh:"首页",ni:"安装教程",nf:"常见问题",nu:"更新日志"}};
-var l=(new URLSearchParams(location.search)).get("lang")||localStorage.getItem("okx_lang")||"en";
-var d=L[l]||L.en;for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
-var m={"/install.html":"ni","/faq.html":"nf","/update.html":"nu"};var id=m[location.pathname];if(id){var e=document.getElementById(id);if(e)e.classList.add("on")}
+// 1. URL param (from homepage lang switch)
+var p=new URLSearchParams(location.search);
+var u=p.get('lang');
+// 2. localStorage (persisted preference)
+var s=localStorage.getItem('okx_lang');
+var l=u||s||'en';
+if(!L[l])l='en';
+// Save for consistency
+if(u)localStorage.setItem('okx_lang',u);
+var d=L[l]||L.en;
+for(var k in d){var el=document.getElementById(k);if(el)el.innerHTML=d[k]}
+var m={"/install.html":"ni","/faq.html":"nf","/update.html":"nu"};
+var id=m[location.pathname];if(id){var e=document.getElementById(id);if(e)e.classList.add("on")}
 </script>
 </body></html>
